@@ -54,6 +54,7 @@ const Play = () => {
       }).then(() => {
         navigate("/home");
         setGameStarted(false);
+        localStorage.clear();
       });
     });
 
