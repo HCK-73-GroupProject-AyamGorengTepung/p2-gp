@@ -45,15 +45,11 @@
     },
     {
         "image": "https://cdn.pixabay.com/photo/2017/10/31/23/52/spain-2906824_640.png",
-        "answer": "Spanyol"
+        "answer": "Spain"
     },
     {
         "image": "https://cdn.pixabay.com/photo/2020/03/30/16/37/asia-4984786_640.jpg",
         "answer": "Japan"
-    },
-    {
-        "image": "https://cdn.pixabay.com/photo/2012/04/11/15/39/flag-28569_640.png",
-        "answer": "Texas"
     },
     {
         "image": "https://cdn.pixabay.com/photo/2013/07/13/14/16/palestine-162385_640.png",
@@ -97,7 +93,7 @@
     },
     {
         "image": "https://cdn.pixabay.com/photo/2016/01/09/22/26/vatican-flag-1131092_640.png",
-        "answer": "Vatikan"
+        "answer": "Vatican"
     },
     {
         "image": "https://st4.depositphotos.com/5675002/27176/i/450/depositphotos_271761530-stock-photo-flag-of-iceland-on-textured.jpg",
