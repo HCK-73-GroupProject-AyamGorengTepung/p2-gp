@@ -102,10 +102,10 @@ const Play = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+    <div className="flex justify-center items-center min-h-screen bg-white ms-[360px]">
       <div className="w-full max-w-3xl p-4">
         {gameStarted ? (
-          <div className="bg-white rounded-lg shadow-md overflow-hidden">
+          <div className="bg-white rounded-lg shadow-lg shadow-gray-700 overflow-hidden">
             <div className="p-6">
               <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">
                 Guess the Country
@@ -146,11 +146,15 @@ const Play = () => {
             </div>
           </div>
         ) : (
-          <div className="bg-white rounded-lg shadow-md p-8 text-center">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">
+          <div className="bg-white rounded-lg p-8 text-center">
+            <img
+              className="mx-auto"
+              src="https://cdn.pixabay.com/animation/2024/08/14/12/13/12-13-23-51_256.gif"
+              alt=""
+            />
+            <h2 className="text-2xl font-bold text-[#0b4898] mb-4">
               Waiting for another player to join...
             </h2>
-            <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4 mx-auto"></div>
           </div>
         )}
       </div>
