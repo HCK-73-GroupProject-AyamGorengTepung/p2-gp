@@ -13,12 +13,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <AddUsernamePage />,
-    loader: () => {
-      if (localStorage.getItem("username")) {
-        return redirect("/home");
-      }
-      return null;
-    },
   },
   {
     element: <MainLayout />,
