@@ -48,6 +48,33 @@ const getRandomCountry = () => {
   return countries[randomIndex];
 };
 
+const startTimer = (roomId) => {
+  if (rooms[roomId]) {
+    rooms[roomId].timer = setTimeout(() => {
+      handleTimeout(roomId);
+    }, 10000); // 10 seconds
+  }
+};
+
+const clearTimer = (roomId) => {
+  if (rooms[roomId] && rooms[roomId].timer) {
+    clearTimeout(rooms[roomId].timer);
+    rooms[roomId].timer = null;
+  }
+};
+
+const handleTimeout = (roomId) => {
+  if (rooms[roomId]) {
+    const newCountryData = getRandomCountry();
+    rooms[roomId].countryData = newCountryData;
+    io.to(roomId).emit("timeUp", {
+      message: "Time's up!",
+      newCountry: newCountryData,
+    });
+    startTimer(roomId);
+  }
+};
+
 io.on("connection", (socket) => {
   setTimeout(() => {
     socket.emit("online:users", onlineUsers);
@@ -70,6 +97,7 @@ io.on("connection", (socket) => {
       countryData: null,
       correctAnswers: 0,
       scores: {},
+      timer: null,
     };
     rooms[roomId].scores[socket.id] = 0;
     socket.join(roomId);
@@ -90,6 +118,7 @@ io.on("connection", (socket) => {
           const countryData = getRandomCountry();
           rooms[roomId].countryData = countryData;
           io.to(roomId).emit("startGame", countryData);
+          startTimer(roomId);
         }
       } else {
         socket.emit("roomFull");
@@ -101,6 +130,7 @@ io.on("connection", (socket) => {
 
   socket.on("correctAnswer", (roomId) => {
     if (rooms[roomId]) {
+      clearTimer(roomId);
       rooms[roomId].correctAnswers++;
       rooms[roomId].scores[socket.id]++;
 
@@ -129,6 +159,7 @@ io.on("connection", (socket) => {
         const newCountryData = getRandomCountry();
         rooms[roomId].countryData = newCountryData;
         io.to(roomId).emit("startGame", newCountryData);
+        startTimer(roomId);
       }
     }
   });
@@ -143,6 +174,7 @@ io.on("connection", (socket) => {
       let index = rooms[roomId].players.indexOf(socket.id);
       if (index > -1) {
         rooms[roomId].players.splice(index, 1);
+        clearTimer(roomId);
 
         if (rooms[roomId].players.length === 0) {
           delete rooms[roomId];
