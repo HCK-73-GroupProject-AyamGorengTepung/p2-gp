@@ -27,7 +27,7 @@ const Sidebar = () => {
               alt=""
             />
             <p
-              className="text-bold text-gray-900 dark:text-white"
+              className="text-bold text-gray-900"
               style={{ marginLeft: 25, marginBottom: 20, marginTop: 30 }}
             >
               Players Online :
@@ -43,9 +43,9 @@ const Sidebar = () => {
                         src="https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg"
                         alt=""
                       />
-                      <span className="top-0 left-9 absolute  w-3.5 h-3.5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full" />
+                      <span className="top-0 left-9 absolute  w-3.5 h-3.5 bg-green-400 border-2 border-white rounded-full" />
                     </div>
-                    <div className="pl-11 text-gray-900 dark:text-white">
+                    <div className="pl-11 text-gray-900">
                       {el.username}
                     </div>
                   </div>
