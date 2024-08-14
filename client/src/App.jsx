@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, redirect, RouterProvider } from "react-router-dom";
 import "./App.css";
 import socket from "./helpers/socket";
 import Home from "./pages/Home";
@@ -11,12 +11,24 @@ socket;
 
 const router = createBrowserRouter([
   {
+    path: "/",
+    element: <AddUsernamePage />,
+    loader: () => {
+      if (localStorage.getItem("username")) {
+        return redirect("/home");
+      }
+      return null;
+    },
+  },
+  {
     element: <MainLayout />,
+    loader: () => {
+      if (!localStorage.getItem("username")) {
+        return redirect("/");
+      }
+      return null;
+    },
     children: [
-      {
-        path: "/",
-        element: <AddUsernamePage />,
-      },
       {
         path: "/home",
         element: <Home />,
