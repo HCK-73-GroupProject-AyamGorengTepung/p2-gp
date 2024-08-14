@@ -18,22 +18,29 @@ const AddUsernamePage = () => {
   };
 
   return (
-    <div className="w-full h-screen justify-center">
+    <div
+      className="w-full h-screen flex justify-center items-end bg-cover bg-center"
+      style={{
+        backgroundImage:
+          "url(https://cdn-0001.qstv.on.epicgames.com/uorYEGIgunHZcagexk/image/landscape_comp.jpeg)",
+      }}
+    >
       <form
         onSubmit={HandleAddUsername}
-        className="flex border-2 border-blue-500 overflow-hidden max-w-md font-[sans-serif] ms-[360px] mt-60 text-center justify-center"
+        className="flex flex-col border-2 border-blue-500 rounded-lg overflow-hidden w-full max-w-4xl text-center justify-center bg-white bg-opacity-90 shadow-lg p-6 mb-16"
       >
+        <h2 className="text-2xl font-semibold mb-4 text-gray-700">Welcome!</h2>
         <input
           value={username}
           onChange={(e) => {
             setUsername(e.target.value);
           }}
-          className="w-full outline-none bg-white text-gray-600 text-sm px-4 py-3"
+          className="w-full outline-none bg-gray-100 text-gray-600 text-sm px-4 py-3 rounded-md mb-4"
           placeholder="Enter username..."
           type="text"
         />
         <button
-          className="flex items-center justify-center bg-[#007bff] px-5 text-sm text-white"
+          className="bg-blue-500 hover:bg-blue-600 transition duration-300 px-6 py-3 text-sm text-white font-semibold rounded-md"
           type="submit"
         >
           Confirm
