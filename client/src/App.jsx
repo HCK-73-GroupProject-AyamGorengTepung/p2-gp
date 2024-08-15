@@ -16,12 +16,6 @@ const router = createBrowserRouter([
   },
   {
     element: <MainLayout />,
-    loader: () => {
-      if (!localStorage.getItem("username")) {
-        return redirect("/");
-      }
-      return null;
-    },
     children: [
       {
         path: "/home",
