@@ -29,6 +29,7 @@ const Play = () => {
       Swal.fire({
         title: "Time's Up!",
         text: message,
+        iconHtml: `<img src = "https://media.tenor.com/IGjQ2m8Wh7QAAAAi/clock.gif">`,
         icon: "warning",
         timer: 1500,
         showConfirmButton: false,
@@ -40,7 +41,9 @@ const Play = () => {
 
     socket.on("gameEnded", ({ message, won, score, totalScore }) => {
       const title = won ? "Congratulations!" : "Game Over";
-      const icon = won ? "success" : "info";
+      let icon = won
+        ? `<img src="https://media.tenor.com/flGNpobJuuoAAAAi/happy-clap.gif">`
+        : `<img src="https://media.tenor.com/Ple2ydG3h2EAAAAi/pepe-noob-bttv.gif">`;
 
       Swal.fire({
         title: title,
@@ -49,8 +52,9 @@ const Play = () => {
           Your Score: ${score}<br>
           Winning Score: ${totalScore}
         `,
-        icon: icon,
+        iconHtml: icon,
         confirmButtonText: "Back to Home",
+        confirmButtonColor: "#09479a",
       }).then(() => {
         navigate("/home");
         setGameStarted(false);
@@ -85,6 +89,8 @@ const Play = () => {
         title: "Correct!",
         text: `You've got ${newScore} out of 5 answers right.`,
         icon: "success",
+        // iconHtml:
+        //   '<img src="https://media.tenor.com/flGNpobJuuoAAAAi/happy-clap.gif">',
         showConfirmButton: false,
         timer: 1500,
       });
@@ -96,13 +102,15 @@ const Play = () => {
         title: "Wrong Answer",
         text: "Please try again!",
         icon: "error",
+        // iconHtml:
+        //   '<img src="https://media.tenor.com/Ple2ydG3h2EAAAAi/pepe-noob-bttv.gif">',
         confirmButtonText: "Try Again",
       });
     }
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-white ms-[360px]">
+    <div className="flex justify-center items-center min-h-screen bg-white ms-[350px]">
       <div className="w-full max-w-3xl p-4">
         {gameStarted ? (
           <div className="bg-white rounded-lg shadow-lg shadow-gray-700 overflow-hidden">

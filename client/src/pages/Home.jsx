@@ -40,15 +40,15 @@ const Home = () => {
 
   return (
     <div
-      className="flex justify-center items-center min-h-screen bg-cover bg-center ms-[360px]"
+      className="flex justify-center items-center min-h-screen bg-cover bg-center ms-[350px]"
       style={{
         backgroundImage: `url('https://e1.pxfuel.com/desktop-wallpaper/908/431/desktop-wallpaper-flags-of-the-world-country-flags.jpg')`,
       }}
     >
-      <div className="bg-white bg-opacity-80 p-8 rounded-lg shadow-2xl backdrop-blur-md transform transition duration-500 hover:scale-105 hover:shadow-xl">
+      <div className="bg-white bg-opacity-80 p-8 rounded-lg shadow-2xl backdrop-blur-sm transform transition duration-500 hover:scale-105 hover:shadow-xl">
         <div className="w-full h-[250px] overflow-hidden rounded-lg mb-4">
           <img
-            src="https://i.ibb.co.com/ynHGP1T/ROOM-removebg-preview.png"
+            src="https://media.tenor.com/h38Wjkq_dhgAAAAM/planet-earth.gif"
             alt="country"
             className="h-full w-full object-cover rounded-lg shadow-md"
           />
