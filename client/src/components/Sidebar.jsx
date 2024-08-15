@@ -13,7 +13,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <nav className="bg-slate-50 shadow-2xl h-screen fixed top-0 left-0 min-w-[250px] py-6 px-4 font-[sans-serif] overflow-auto">
+      <nav className="bg-slate-50 shadow-2xl h-screen fixed top-0 left-0 lg:min-w-[250px] py-6 px-4 font-[sans-serif] overflow-auto">
         <div className="drawer-side">
           <label
             htmlFor="my-drawer-2"

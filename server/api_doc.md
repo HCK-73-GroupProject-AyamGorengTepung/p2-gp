@@ -1,5 +1,9 @@
 # Guess The Country API Documentation
 
+> Deployment Link:
+- Server: https://gtc.gdevjs.site
+- Client: https://gtcp2-637b9.web.app/
+
 ## Endpoints
 
 List of available endpoints:
