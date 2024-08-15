@@ -1,5 +1,5 @@
-if(process.env.NODE_ENV !== "production") {
-    require("dotenv").config()
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
 }
 
 const express = require("express");
@@ -106,17 +106,21 @@ io.on("connection", (socket) => {
     rooms[roomId].scores[socket.id] = 0;
     socket.join(roomId);
     socket.emit("roomCreated", roomId);
+    console.log(roomId, "<<<<<<<<<< createRoomId");
   });
 
   socket.on("joinRandomRoom", () => {
     const roomIds = Object.keys(rooms);
+    console.log(rooms, "<<<<<< joinRooms");
     if (roomIds.length > 0) {
       const roomId = roomIds[Math.floor(Math.random() * roomIds.length)];
+
       if (rooms[roomId].players.length < 2) {
         rooms[roomId].players.push(socket.id);
         rooms[roomId].scores[socket.id] = 0;
         socket.join(roomId);
         socket.emit("roomJoined", roomId);
+        console.log(roomId, "<<<<<<<<<<< joinRoomId");
 
         if (rooms[roomId].players.length === 2) {
           const countryData = getRandomCountry();
@@ -130,6 +134,8 @@ io.on("connection", (socket) => {
     } else {
       socket.emit("noRooms");
     }
+    
+  console.log(rooms, "<<<<<<<<<<< roomsAfter");
   });
 
   socket.on("correctAnswer", (roomId) => {

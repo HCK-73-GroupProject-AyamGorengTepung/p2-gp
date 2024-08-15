@@ -27,15 +27,15 @@ const AddUsernamePage = () => {
     >
       <form
         onSubmit={HandleAddUsername}
-        className="flex flex-col border-2 border-blue-500 rounded-lg overflow-hidden w-full max-w-4xl text-center justify-center bg-white bg-opacity-90 shadow-lg p-6 mb-16"
+        className="flex flex-col border-4 border-black rounded-lg overflow-hidden w-full max-w-xl text-center justify-center bg-white bg-opacity-90 shadow-lg p-6 mb-16"
       >
-        <h2 className="text-2xl font-semibold mb-4 text-gray-700">Welcome!</h2>
+        <h2 className="text-2xl font-bold mb-4 text-black">Welcome!</h2>
         <input
           value={username}
           onChange={(e) => {
             setUsername(e.target.value);
           }}
-          className="w-full outline-none bg-gray-100 text-gray-600 text-sm px-4 py-3 rounded-md mb-4"
+          className="w-full outline-none bg-gray-200 text-black text-sm px-4 py-3 rounded-md mb-4"
           placeholder="Enter username..."
           type="text"
         />
@@ -43,7 +43,7 @@ const AddUsernamePage = () => {
           className="bg-blue-500 hover:bg-blue-600 transition duration-300 px-6 py-3 text-sm text-white font-semibold rounded-md"
           type="submit"
         >
-          Confirm
+          Continue
         </button>
       </form>
     </div>
